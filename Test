@@ -1,0 +1,9 @@
+time iquery -aq "ric_window(TT,0,10,0,100,max(v));" -r output
+time iquery -aq "window(TT,0,10,0,100,max(v),'probe');" -r outpu
+
+
+
+query -aq "filter(join(resNaive as A, resNaiveIc as B), abs(A.v_sum - B.v_sum) > 1e-7)"
+
+time iquery -anq "store(window(A1000,5,5,5,5,sum(v)),resNaive)"
+time iquery -anq "store(window(A1000,5,5,5,5,sum(v),'materialize'),resNaive)

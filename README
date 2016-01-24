@@ -1,0 +1,29 @@
+IC_Window
+===================
+
+To improve window aggregate queries in SciDB with Recursive Incremental Computation Method.
+'ric_window' implemented into SciDB as a plugin user-defined-operator       
+
+Supporting aggregate operators: Sum, Avg, Max, Min, Var, Stdev
+SciDB Version: 14.12
+
+===================
+How to Use:
+copy libicwindow.so into the scidb plugin dir, 
+run the following command within 'iquery' client of SciDB
+AFL% load_library('icwindow');
+
+Then operator 'ric_window' and 'ic_window' can be used.      
+'ric_window' is implemented in recursive IC method;
+'ic_window' us implemented in basic IC method;
+please use 'ric_window' operator to get the best performance improvement.
+
+
+The parameter settings are the same as SciDB's build-in operator 'window' in SciDB
+Check details in the SciDB-Userguide
+
+
+ ====================
+ To Make:                                                                
+ Need to modify the Makefile, set the SciDB-Source Directory with correct location in your machine.                          
+ A few libraries needed to compile, same ones as building SciDB from Source Code.
